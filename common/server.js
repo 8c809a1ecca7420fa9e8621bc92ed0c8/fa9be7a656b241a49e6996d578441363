@@ -45,6 +45,8 @@ nextApp
 			next()
 		})
 
+		// eslint-disable-next-line global-require
+		server.use("/api/", require("../routes/index"))
 		server.get("*", (req, res) => {
 			return handle(req, res)
 		})
