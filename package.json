@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/8c809a1ecca7420fa9e8621bc92ed0c8/fa9be7a656b241a49e6996d578441363#readme",
   "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "@material-ui/styles": "^4.3.3",
     "compression": "^1.7.4",
     "connect-timeout": "^1.9.0",
     "express": "^4.17.1",
