@@ -17,7 +17,7 @@ class Task1Details extends React.Component {
                 <Typography variant="body1" gutterBottom>
                     The goal of Task 1 is to render a page at the root of the application using SSR (Server Side Rendering)
                     and React. The page should display the time of day. Please note that the time of day is coming
-                    from the server, and will only be refreshed when the server renders the page.
+                    from the server only initially.
                 </Typography>
                 <Typography variant="h3" gutterBottom>
                     Time of day: {timeOfDay}
