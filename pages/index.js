@@ -47,7 +47,7 @@ class Index extends Component {
 		// if a cookie is found with banned-user is detected - send a 401
 		if(sid === "banned-user") {
 			if(ctx.res) ctx.res.statusCode = 401
-			initProps.errorCode = 401 // pass this as a prop for our custom error page
+			initProps.statusCode = 401 // pass this as a prop for our custom error page
 		}		
 
 		return initProps // return the props
@@ -73,12 +73,14 @@ class Index extends Component {
 		}
 		if(sid === "test-session-id"){
 			selectedPageStyle = {
-				backgroundColor: "#222"
+				backgroundColor: "#222",
+				height: "100%",
+				width: "100%"
 			}
 		}
 
-		if (this.props.errorCode) {
-			return <ErrorPage errorCode={this.props.errorCode} message="error!" />
+		if (this.props.statusCode) {
+			return <ErrorPage statusCode={this.props.statusCode} message="error!" />
 		} else {
 			return (
 				<div style={selectedPageStyle}>

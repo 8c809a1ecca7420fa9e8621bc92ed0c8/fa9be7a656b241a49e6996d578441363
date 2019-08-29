@@ -6,20 +6,20 @@ class ErrorPage extends React.Component {
 
   static propTypes() {
     return {
-      errorCode: React.PropTypes.number.isRequired,
+      statusCode: React.PropTypes.number.isRequired,
       url: React.PropTypes.string.isRequired
     }
   }
 
   static getInitialProps({res, xhr}) {
     const initProps = {}
-    initProps.errorCode =  res ? res.statusCode : (xhr ? xhr.status : null)
+    initProps.statusCode =  res ? res.statusCode : (xhr ? xhr.status : null)
     return {initProps}
   }
 
   renderErrorDetails = () => {
     var response
-    switch (this.props.errorCode) {
+    switch (this.props.statusCode) {
       case 200: // Also display a 404 if someone requests /_error explicitly
       case 401:
           response = (
@@ -48,9 +48,9 @@ class ErrorPage extends React.Component {
       default:
         response = (
           <div>
-              <h1>HTTP { this.props.errorCode } Error</h1>
+              <h1>HTTP { this.props.statusCode } Error</h1>
               <p>
-                An <strong>HTTP { this.props.errorCode }</strong> error occurred while
+                An <strong>HTTP { this.props.statusCode }</strong> error occurred while
                 trying to access <strong>{ this.props.router.pathname }</strong>
               </p>
           </div>
