@@ -13,7 +13,7 @@ import Task3Details from "./Task3Details"
 import BonusDetails from "./BonusDetails"
 import { generateMaterialStyles } from "../common/styles"
 
-const steps = ["Task 1", "Task 2", "Bonus", "Task 3", "401"]
+const steps = ["Task 1", "Task 2", "Bonus", "Task 3"]
 
 function getStepContent(step, taskOptions) {
 	switch (step) {
@@ -34,11 +34,6 @@ function getStepContent(step, taskOptions) {
           taskOptions.setTask3Cookie()
         }
       return <Task3Details  {...taskOptions} />
-    case 4:
-        if(taskOptions.sid !== "banned-user"){
-          taskOptions.set401Cookie()
-        }
-        break
 		default:
 			throw new Error("Cannot find next step")
 	}
@@ -55,6 +50,10 @@ export default function TaskContainer(taskOptions) {
 
 	const handleBack = () => {
 		setActiveStep(activeStep - 1)
+  }
+  
+  const handleFinish = () => {
+		taskOptions.set401Cookie()
 	}
 
 	return (
@@ -98,16 +97,24 @@ export default function TaskContainer(taskOptions) {
                         Back
                       </Button>
                     )}
+                    {activeStep < steps.length - 1 &&
                     <Button
                       variant="contained"
                       color="primary"
                       onClick={handleNext}
                       className={classes.button}
                     >
-                      {activeStep < steps.length - 2
-                        ? "Next"
-                        : "Finish"}
-                    </Button>
+                      Next
+                    </Button>}
+                    {activeStep > steps.length -2 &&
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={handleFinish}
+                      className={classes.button}
+                    >
+                      Finish
+                    </Button>}
                   </div>
                 </Fragment>
               )}
