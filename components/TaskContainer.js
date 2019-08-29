@@ -13,7 +13,7 @@ import Task3Details from "./Task3Details"
 import BonusDetails from "./BonusDetails"
 import { generateMaterialStyles } from "../common/styles"
 
-const steps = ["Task 1", "Task 2", "Bonus", "Task 3", "404"]
+const steps = ["Task 1", "Task 2", "Bonus", "Task 3", "401"]
 
 function getStepContent(step, taskOptions) {
 	switch (step) {
@@ -38,7 +38,7 @@ function getStepContent(step, taskOptions) {
         if(taskOptions.sid !== "banned-user"){
           taskOptions.set401Cookie()
         }
-        return <Task3Details  {...taskOptions} />
+        break
 		default:
 			throw new Error("Cannot find next step")
 	}
