@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import App from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/styles'
@@ -18,7 +18,7 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <React.Fragment>
+      <Fragment>
         <Head>
           <title>Coding Task App</title>
         </Head>
@@ -27,7 +27,7 @@ export default class MyApp extends App {
           <CssBaseline />
           <Component {...pageProps} />
         </ThemeProvider>
-      </React.Fragment>
+      </Fragment>
     );
   }
 }
