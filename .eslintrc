@@ -1,0 +1,29 @@
+{
+	"extends": ["airbnb-base", "prettier", "eslint:recommended", "plugin:react/recommended"],
+	"plugins": ["mocha", "prettier"],
+	"env": {
+		"node": true,
+		"mocha": true
+	},
+	"globals": { "React": "writable" },
+	"rules": {
+		"prettier/prettier": "error",
+		// Avoid variable declaration enforcement by one-var
+		"one-var": "off",
+		// console.log is useful
+		"no-console": "off",
+		// lets not be too strict - its better this way
+		"no-param-reassign": "off",
+		// ending EOL
+		"eol-last": ["error", "always"],
+		// removing i++ would be blasphemy
+		"no-plusplus": "off",
+		"mocha/no-exclusive-tests": "error",
+		// sometimes you may just want a class with a simple render method that does not use this
+		"class-methods-use-this": "off",
+		// export default const is not valid... so we will disable this bc its nice to use export const
+		"import/prefer-default-export": "off",
+		// without this, we will get errors since NextJs does not require you to import React into each component.
+		"react/react-in-jsx-scope": "off"
+	}
+}

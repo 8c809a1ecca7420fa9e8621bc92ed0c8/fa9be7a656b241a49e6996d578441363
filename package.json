@@ -1,0 +1,44 @@
+{
+  "name": "fa9be7a656b241a49e6996d578441363",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "local": "NODE_ENV=local node server.js",
+    "dev": "NODE_ENV=dev node server.js",
+    "local-windows": "set NODE_ENV=local&node server.js",
+    "dev-windows": "set NODE_ENV=dev&node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/8c809a1ecca7420fa9e8621bc92ed0c8/fa9be7a656b241a49e6996d578441363.git"
+  },
+  "keywords": [],
+  "author": "Isaac Prussey",
+  "contributors": [
+    "Isaac Prussey <isaac@neverrealm.com>"
+  ],
+  "license": "Unlicensed",
+  "bugs": {
+    "url": "https://github.com/8c809a1ecca7420fa9e8621bc92ed0c8/fa9be7a656b241a49e6996d578441363/issues"
+  },
+  "homepage": "https://github.com/8c809a1ecca7420fa9e8621bc92ed0c8/fa9be7a656b241a49e6996d578441363#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "next": "^9.0.5",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-mocha": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "mocha": "^6.2.0",
+    "prettier": "^1.18.2",
+    "squel": "^5.13.0"
+  }
+}
