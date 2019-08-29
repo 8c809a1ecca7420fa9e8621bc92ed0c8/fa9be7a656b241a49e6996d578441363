@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "local": "NODE_ENV=local node server.js",
-    "dev": "NODE_ENV=dev node server.js",
-    "local-windows": "set NODE_ENV=local&node server.js",
-    "dev-windows": "set NODE_ENV=dev&node server.js"
+    "local": "NODE_ENV=local node common/server.js",
+    "dev": "NODE_ENV=dev node common/server.js",
+    "local-windows": "set NODE_ENV=local&node common/server.js",
+    "dev-windows": "set NODE_ENV=dev&node common/server.js"
   },
   "repository": {
     "type": "git",
