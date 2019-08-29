@@ -1,7 +1,7 @@
 {
   "name": "fa9be7a656b241a49e6996d578441363",
   "version": "1.0.0",
-  "description": "",
+  "description": "Server side rendering boilerplate using express, next, and react",
   "main": "index.js",
   "scripts": {
     "local": "NODE_ENV=local node common/server.js",
@@ -29,9 +29,12 @@
     "compression": "^1.7.4",
     "connect-timeout": "^1.9.0",
     "express": "^4.17.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "js-cookie": "^2.2.1",
     "moment": "^2.24.0",
     "morgan": "^1.9.1",
     "next": "^9.0.5",
+    "nookies": "^2.0.8",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "winston": "^3.2.1",
