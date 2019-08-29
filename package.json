@@ -7,7 +7,10 @@
     "local": "NODE_ENV=local node common/server.js",
     "dev": "NODE_ENV=dev node common/server.js",
     "local-windows": "set NODE_ENV=local&node common/server.js",
-    "dev-windows": "set NODE_ENV=dev&node common/server.js"
+    "dev-windows": "set NODE_ENV=dev&node common/server.js",
+    "build": "next build",
+    "export": "next export",
+    "deploy": "npm run build && npm run export"
   },
   "repository": {
     "type": "git",
