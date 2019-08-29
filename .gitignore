@@ -19,6 +19,9 @@ yarn-error.log*
 # Next.js
 /.next
 
+# Next export
+/out
+
 # Webpack directories
 .webpack
 
