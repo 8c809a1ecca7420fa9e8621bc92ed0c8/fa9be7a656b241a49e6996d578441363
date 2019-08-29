@@ -1,6 +1,12 @@
-const Index = () => (
-    <div>
-      <p>The most basic nextjs and express project</p>
-    </div>
-  )
-  export default Index
+import { Component } from "react"
+import TaskContainer from "../components/TaskContainer"
+
+class Index extends Component {
+	render() {
+    return (
+      <TaskContainer />
+    )
+	}
+}
+
+export default Index
