@@ -1,11 +1,15 @@
-const express = require("express")
-const next = require("next")
+const express = require("express"),
+	nextjs = require("next"),
+	wlogger = require("./wlogger")("[server]")
 
-const dev = process.env.NODE_ENV !== "production"
-const app = next({ dev })
-const handle = app.getRequestHandler()
+const isProd = process.env.NODE_ENV === "production"
+const nextApp = nextjs({ dev: !isProd })
+const handle = nextApp.getRequestHandler()
 
-app.prepare()
+const PORT = process.env.PORT || 3000
+
+nextApp
+	.prepare()
 	.then(() => {
 		const server = express()
 
@@ -13,13 +17,15 @@ app.prepare()
 			return handle(req, res)
 		})
 
-		server.listen(3000, err => {
-			if (err) throw err
-			console.log("> Server is started on 3000")
+		server.listen(PORT, err => {
+			if (err) {
+				wlogger.error(err)
+				throw err
+			}
+			wlogger.info(`Server listening on port ${PORT}`)
 		})
 	})
-	.catch(ex => {
-		console.error(ex.stack)
+	.catch(err => {
+		wlogger.error("Error caught from NextJS", err)
 		process.exit(1)
 	})
-
