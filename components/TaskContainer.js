@@ -18,22 +18,22 @@ const steps = ["Task 1", "Task 2", "Bonus", "Task 3", "404"]
 function getStepContent(step, taskOptions) {
 	switch (step) {
 		case 0:
-			  return <Task1Details  />
+			  return <Task1Details {...taskOptions} />
 		case 1:
-			  return <Task2Details  />
+			  return <Task2Details {...taskOptions} />
 		case 2:
-        return <BonusDetails  />
+        return <BonusDetails {...taskOptions} />
 		case 3:
-      return <Task3Details  />
+      return <Task3Details {...taskOptions} />
     case 4:
-        return <Task3Details />
+        return <Task3Details {...taskOptions} />
 		default:
 			throw new Error("Cannot find next step")
 	}
 }
 
 export default function TaskContainer(taskOptions) {
-	const classes = generateMaterialStyles()
+  const classes = generateMaterialStyles()
   const [activeStep, setActiveStep] = React.useState(0)
   
 	const handleNext = () => {

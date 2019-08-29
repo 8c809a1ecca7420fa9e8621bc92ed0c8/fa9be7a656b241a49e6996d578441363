@@ -2,7 +2,14 @@ import {Fragment} from "react"
 import Typography from "@material-ui/core/Typography"
 
 class Task3Details extends React.Component {
-	render() {
+    static propTypes() {
+        return {
+            timeOfDay: React.PropTypes.number.isRequired,
+        }
+    }
+    render() {
+        const { timeOfDay } = this.props
+
         return (
             <Fragment>
                 <Typography variant="h6" gutterBottom>
@@ -12,7 +19,7 @@ class Task3Details extends React.Component {
 
                 </Typography>
                 <Typography variant="h3" gutterBottom>
-                    Time of day:
+                    Time of day: {timeOfDay}
                 </Typography>
             </Fragment>
         )
