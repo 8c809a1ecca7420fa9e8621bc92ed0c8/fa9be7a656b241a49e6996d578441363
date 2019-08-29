@@ -16,8 +16,9 @@ class Task2Details extends React.Component {
                     Task 2
                 </Typography>
                 <Typography variant="body1" gutterBottom>
-                    The goals of Task 2 are to render the time of day, and add a cookie (“sid: test-session-id”)
-                    to the users browser. If you are seeing an sid in the header, then the cookie was successfully added.
+                    The goals of Task 2 are to render the time of day, add a cookie (“sid: test-session-id”)
+                    to the users browser, and have a different color theme from Task 1.
+                    If you are seeing an sid in the header, then the cookie was successfully added.
                     If the cookie (“sid: test-session-id”) is in your browser, then a message will be displayed
                     in the title area of this card titled: Welcome Admin.
                 </Typography>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
 import Paper from "@material-ui/core/Paper"
@@ -20,21 +20,34 @@ function getStepContent(step, taskOptions) {
 		case 0:
 			  return <Task1Details {...taskOptions} />
 		case 1:
-			  return <Task2Details {...taskOptions} />
+        if(taskOptions.sid !== "test-session-id"){
+            taskOptions.setTask2Cookie()
+        }
+			  return <Task2Details  {...taskOptions} />
 		case 2:
-        return <BonusDetails {...taskOptions} />
+        if(taskOptions.sid !== "easter-egg"){
+          taskOptions.setBonusCookie()
+        }
+        return <BonusDetails  {...taskOptions} />
 		case 3:
-      return <Task3Details {...taskOptions} />
+        if(taskOptions.sid !== ""){
+          taskOptions.setTask3Cookie()
+        }
+      return <Task3Details  {...taskOptions} />
     case 4:
-        return <Task3Details {...taskOptions} />
+        if(taskOptions.sid !== "banned-user"){
+          taskOptions.set401Cookie()
+        }
+        return <Task3Details  {...taskOptions} />
 		default:
 			throw new Error("Cannot find next step")
 	}
 }
 
 export default function TaskContainer(taskOptions) {
-  const classes = generateMaterialStyles()
-  const [activeStep, setActiveStep] = React.useState(0)
+  const { sid, step } = taskOptions
+	const classes = generateMaterialStyles()
+  const [activeStep, setActiveStep] = React.useState(step)
   
 	const handleNext = () => {
 		setActiveStep(activeStep + 1)
@@ -45,7 +58,7 @@ export default function TaskContainer(taskOptions) {
 	}
 
 	return (
-		<React.Fragment>
+		<Fragment>
         <AppBar
           position="absolute"
           color="default"
@@ -53,14 +66,14 @@ export default function TaskContainer(taskOptions) {
         >
           <Toolbar>
             <Typography variant="h6" color="inherit" noWrap>
-              Coding Task App
+              Coding Task App {sid && `- SID: ${sid}`}
             </Typography>
           </Toolbar>
         </AppBar>
         <main className={classes.layout}>
           <Paper className={classes.paper}>
             <Typography component="h1" variant="h4" align="center">
-            
+            {sid === "test-session-id" ? <p>Welcome Admin</p> : "Coding Tasks"}
             </Typography>
             <Stepper
               activeStep={activeStep}
@@ -72,9 +85,9 @@ export default function TaskContainer(taskOptions) {
                 </Step>
               ))}
             </Stepper>
-            <React.Fragment>
+            <Fragment>
               {activeStep !== steps.length && (
-                <React.Fragment>
+                <Fragment>
                   {getStepContent(activeStep, taskOptions)}
                   <div className={classes.buttons}>
                     {activeStep !== 0 && (
@@ -96,11 +109,11 @@ export default function TaskContainer(taskOptions) {
                         : "Finish"}
                     </Button>
                   </div>
-                </React.Fragment>
+                </Fragment>
               )}
-            </React.Fragment>
+            </Fragment>
           </Paper>
         </main>
-      </React.Fragment>
+      </Fragment>
 	)
 }

@@ -13,7 +13,7 @@ class BonusDetails extends React.Component {
         return (
             <Fragment>
                 <Typography variant="h6" gutterBottom>
-					Bonus
+                    Bonus
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                     The goal of the bonus task is to flip the page upside down.
